@@ -1,6 +1,7 @@
 {
   "compilerVersion": "./node_modules/solc",
   "outputType": "all",
+  "outputDirectory": "./build/contracts",
   "compilerOptions": {
     "outputSelection": {
       "*": {

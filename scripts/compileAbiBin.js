@@ -40,9 +40,10 @@ fs.readdir("./build/contracts", function (err, files) {
         let rawdata = fs.readFileSync(path);
         let contract = JSON.parse(rawdata);
         let { abi, bytecode} = contract;
-        bytecode = bytecode.substring(2);
+        // bytecode = bytecode.substring(2);
+        if (abi === undefined) return;
 
-        if (abi.length === 0) return;
+        if (abi === undefined || abi.length === 0) return;
         fs.writeFileSync(ABI_PATH + basename + ".abi"  , JSON.stringify(abi));
         fs.writeFileSync(BIN_PATH + basename + ".bin", bytecode);
     });
